@@ -6,12 +6,9 @@ import NFTBox from "../components/NFTBox"
 export default function Home() {
     const { isWeb3Enabled } = useMoralis()
     const { data: listedNfts, isFetching: fetchingListedNfts } = useMoralisQuery(
-        // TableName
-        // Function for the query
         "ActiveItem",
         (query) => query.limit(10).descending("tokenId")
     )
-    console.log(listedNfts)
 
     return (
         <div className="container mx-auto">
@@ -22,19 +19,21 @@ export default function Home() {
                         <div>Loading...</div>
                     ) : (
                         listedNfts.map((nft) => {
-                            console.log(nft.attributes)
                             const { price, nftAddress, tokenId, marketplaceAddress, seller } =
                                 nft.attributes
                             return (
                                 <div>
-                                    <NFTBox
-                                        price={price}
-                                        nftAddress={nftAddress}
-                                        tokenId={tokenId}
-                                        marketplaceAddress={marketplaceAddress}
-                                        seller={seller}
-                                        key={`${nftAddress}${tokenId}`}
-                                    />
+                                    {
+                                        <NFTBox
+                                            price={price}
+                                            nftAddress={nftAddress}
+                                            tokenId={tokenId}
+                                            marketplaceAddress={marketplaceAddress}
+                                            seller={seller}
+                                            key={`${nftAddress}${tokenId}`}
+                                            // key={`${nftAddress}${tokenId}`}
+                                        />
+                                    }
                                 </div>
                             )
                         })

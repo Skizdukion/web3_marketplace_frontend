@@ -2,8 +2,8 @@ import styles from "../styles/Home.module.css"
 import { Form, useNotification, Button } from "web3uikit"
 import { useMoralis, useWeb3Contract } from "react-moralis"
 import { ethers } from "ethers"
-import nftAbi from "../constants/BasicNft.json"
-import nftMarketplaceAbi from "../constants/NftMarketplace.json"
+import nftAbi from "../constants/abi/BasicNft.json"
+import nftMarketplaceAbi from "../constants/abi/NftMarketplace.json"
 import networkMapping from "../constants/networkMapping.json"
 import { useEffect, useState } from "react"
 
@@ -131,7 +131,7 @@ export default function Home() {
                 title="Sell your NFT!"
                 id="Main Form"
             />
-            <div>Withdraw {proceeds} proceeds</div>
+            <div>Withdraw {ethers.utils.formatUnits(proceeds, "ether")} ETH proceeds</div>
             {proceeds != "0" ? (
                 <Button
                     onClick={() => {

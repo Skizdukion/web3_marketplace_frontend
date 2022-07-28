@@ -11,8 +11,9 @@ const appId = process.env.NEXT_PUBLIC_APP_ID
 const masterKey = process.env.masterKey
 
 async function main() {
+    console.log(`Creating Table for contract event`)
     await Moralis.start({ serverUrl, appId, masterKey })
-    console.log(`Working with contrat address ${contractAddress}`)
+    console.log(`Working with contract address ${contractAddress}`)
 
     let itemListedOptions = {
         // Moralis understands a local chain is 1337
@@ -114,7 +115,7 @@ async function main() {
                     type: "address",
                 },
                 {
-                    indexed: true,
+                    indexed: false,
                     internalType: "uint256",
                     name: "tokenId",
                     type: "uint256",

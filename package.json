@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "syncing": "moralis-admin-cli connect-local-devchain --moralisSubdomain jknqzn2gc43x.usemoralis.com --chain hardhat --frpcPath ./frp/frpc",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "moralis:sync": "moralis-admin-cli connect-local-devchain --chain hardhat --moralisSubdomain lkei3yi1kglb.usemoralis.com --frpcPath ./frp/frpc",
-    "moralis:cloud": "moralis-admin-cli watch-cloud-folder --moralisSubdomain lkei3yi1kglb.usemoralis.com --autoSave 1 --moralisCloudfolder ./cloudFunctions"
+    "moralis:cloud": "moralis-admin-cli watch-cloud-folder --moralisSubdomain jknqzn2gc43x.usemoralis.com --autoSave 1 --moralisCloudfolder ./cloudFunctions"
   },
   "dependencies": {
     "moralis": "^1.5.11",
+    "moralis-admin-cli": "^2.1.16",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -23,6 +24,7 @@
     "dotenv": "^16.0.0",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.5",
+    "ethers": "^5.6.9",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24"
   }
